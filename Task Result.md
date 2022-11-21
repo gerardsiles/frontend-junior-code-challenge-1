@@ -4,20 +4,21 @@
 
 I use the following technologies / frameworks in my project:
 
-- JavaScript / jQuery
-- PHP / Symfony
-- ...
+- React
 
-I chose jQuery because ...
+I chose React to work with this project because it allows me to create a good structure for the project
+and make it scalable and reusable.
 
 ## Used 3rd Party Libraries
 
-I use the following 3rd party libraries in my project: (if none, remove the table and explain why)
+I use the following 3rd party libraries in my project:
 
-Name | Reason
---- | ---
-[moment.js](https://momentjs.com/) | For calculating dates and converting formats.
-[Bootstrap](https://getbootstrap.com/) | Simple RWD framework for designing the front end.
+| Name                                    | Reason                                               |
+| --------------------------------------- | ---------------------------------------------------- |
+| [React](https://reactjs.org/)           | JS framework to build the UI interface               |
+| [Tailwindcss](https://tailwindcss.com/) | framework for designing the front end css faster     |
+| [Papaparse](https://www.papaparse.com)  | Framework to parse CVS data into JSON                |
+| [MaterialUI](https://www.mui.com)       | Framework for UI Components (in this case data grid) |
 
 ## Installation / Run
 
@@ -40,4 +41,5 @@ $ cd <repositoryname>
 $ npm install
 $ npm run start
 ```
+
 ---
