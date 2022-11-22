@@ -1,32 +1,28 @@
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState, useMemo } from 'react';
+import { tableColumns } from '../assets/table-columns';
 
 const Table = ({ data }) => {
-	const columns = useMemo(
-		() => [
-			{ field: 'Hauptartikelnr', headerName: 'Hauptartikelnr' },
-			{ field: 'Artikelname', headerName: 'Artiklename' },
-			{ field: 'Hersteller', headerName: 'Hersteller' },
-			{ field: 'Beschreilbung', headerName: 'Beschreilbung' },
-			{ field: 'Materialangaben', headerName: 'Materialangaben' },
-			{ field: 'Geschlecht', headerName: 'Geschlecht' },
-			{ field: 'Produktart', headerName: 'Produktart' },
-			{ field: 'Armel', headerName: 'Armel' },
-			{ field: 'Bein', headerName: 'Bein' },
-			{ field: 'Kragen', headerName: 'Kragen' },
-			{ field: 'Herstellung', headerName: 'Herstellung' },
-			{ field: 'Taschenart', headerName: 'Taschenart' },
-			{ field: 'Grammatur', headerName: 'Grammatur' },
-			{ field: 'Material', headerName: 'Material' },
-			{ field: 'Ursprungsland', headerName: 'Ursprungsland' },
-			{ field: 'Bildname', headerName: 'Bildname' },
-		],
-		[]
-	);
+	// Avoid to rerender the header
+	const columns = useMemo(() => tableColumns);
+	// size of talbe results
 	const [size, setSize] = useState(10);
 	return (
-		<Box sx={{ height: 400, width: '100%' }}>
+		<Box
+			sx={{
+				boxShadow: 2,
+				marginTop: 5,
+				boder: 2,
+				borderColor: 'rgb(36, 46, 185)',
+				height: 400,
+				width: '100%',
+				backgroundColor: '#fff',
+				'& .super-app-theme--header': {
+					backgroundColor: 'rgba(0, 0, 0, 0.5)',
+				},
+			}}
+		>
 			<DataGrid
 				rows={data}
 				columns={columns}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Papa from 'papaparse';
 import csvFile from '../assets/Artikel.csv';
 import Table from '../components/table-component';
+import PieChartComponent from '../components/pie-chart-component';
 
 function Home() {
 	const [data, setData] = useState([]);
@@ -12,6 +13,7 @@ function Home() {
 			download: true,
 			header: true,
 			complete: results => {
+				console.log(results.data);
 				setData(results.data);
 			},
 			error: (error, file) => {
@@ -34,10 +36,16 @@ function Home() {
 				</button>
 			</div>
 
+			{/* Render Pie Chart */}
+			<div className={'w-full h-xl'}>
+				{data.length > 0 && <PieChartComponent data={data} />}
+			</div>
+
 			{/* Render Table if there's data to be shown */}
 			{data.length > 0 && <Table data={data} />}
 
 			{/* Download csv icon https://icons8.com/icons/set/csv-file */}
+			{/* Download Result */}
 		</div>
 	);
 }

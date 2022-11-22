@@ -19,6 +19,7 @@ I use the following 3rd party libraries in my project:
 | [Tailwindcss](https://tailwindcss.com/) | framework for designing the front end css faster     |
 | [Papaparse](https://www.papaparse.com)  | Framework to parse CVS data into JSON                |
 | [MaterialUI](https://www.mui.com)       | Framework for UI Components (in this case data grid) |
+| [Recharts](https://recharts.org/)       | Framework to render charts on React                  |
 
 ## Installation / Run
 
