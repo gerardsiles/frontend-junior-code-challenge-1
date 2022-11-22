@@ -3,7 +3,7 @@ export const tableColumns = [
 		field: 'Hauptartikelnr',
 		headerName: 'Hauptartikelnr',
 		headerClassName: 'super-app-theme--header',
-		width: 100,
+		width: 110,
 	},
 	{
 		field: 'Artikelname',
@@ -20,6 +20,7 @@ export const tableColumns = [
 		field: 'Beschreilbung',
 		headerName: 'Beschreilbung',
 		headerClassName: 'super-app-theme--header',
+		width: 110,
 	},
 	{
 		field: 'Materialangaben',
@@ -78,6 +79,7 @@ export const tableColumns = [
 		field: 'Ursprungsland',
 		headerName: 'Ursprungsland',
 		headerClassName: 'super-app-theme--header',
+		width: 120,
 	},
 	{
 		field: 'Bildname',

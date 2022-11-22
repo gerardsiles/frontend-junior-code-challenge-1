@@ -1,6 +1,5 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
-import CharCard from './char-card';
 
 const renderActiveShape = props => {
 	const RADIAN = Math.PI / 180;
@@ -60,7 +59,7 @@ const renderActiveShape = props => {
 				y={ey}
 				textAnchor={textAnchor}
 				fill='#333'
-			>{`PV ${value}`}</text>
+			>{`Total ${value}`}</text>
 			<text
 				x={ex + (cos >= 0 ? 1 : -1) * 12}
 				y={ey}
@@ -74,55 +73,25 @@ const renderActiveShape = props => {
 	);
 };
 
-const setPieAverage = data => {
-	let average = [
-		{ name: 'Herren', value: 0 },
-		{ name: 'Damen', value: 0 },
-		{ name: 'Kinder', value: 0 },
-		{ name: 'Babies', value: 0 },
-		{ name: 'Undefined', value: 0 },
-	];
-
-	let result = data.map(element => {
-		if (element.Geschlecht === 'Herren') {
-			average[0].value++;
-		} else if (element.Geschlecht === 'Damen') {
-			average[1].value += 1;
-		} else if (element.Geschlecht === 'Kinder') {
-			average[2].value += 1;
-		} else if (element.Geschlecht === 'Babies') {
-			average[3].value += 1;
-		} else {
-			average[4].value += 1;
-		}
-	});
-	return average;
-};
-
 const PieChartComponent = ({ data }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
-	const [result, setResult] = useState([]);
-
-	useState(state => {
-		setResult(setPieAverage(data));
-	});
 
 	const onPieEnter = (_, index) => {
 		setActiveIndex(index);
 	};
 	return (
 		<ResponsiveContainer width='100%' height='80%'>
-			<PieChart width={400} height={400}>
+			<PieChart width={350} height={400}>
 				<Pie
 					activeIndex={activeIndex}
 					activeShape={renderActiveShape}
-					data={result}
+					data={data}
 					cx='50%'
 					cy='50%'
 					innerRadius={60}
 					outerRadius={80}
 					fill='#8884d8'
-					dataKey='value'
+					dataKey='amount'
 					onMouseEnter={onPieEnter}
 				/>
 			</PieChart>

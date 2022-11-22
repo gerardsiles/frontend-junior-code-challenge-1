@@ -13,13 +13,13 @@ and make it scalable and reusable.
 
 I use the following 3rd party libraries in my project:
 
-| Name                                    | Reason                                               |
-| --------------------------------------- | ---------------------------------------------------- |
-| [React](https://reactjs.org/)           | JS framework to build the UI interface               |
-| [Tailwindcss](https://tailwindcss.com/) | framework for designing the front end css faster     |
-| [Papaparse](https://www.papaparse.com)  | Framework to parse CVS data into JSON                |
-| [MaterialUI](https://www.mui.com)       | Framework for UI Components (in this case data grid) |
-| [Recharts](https://recharts.org/)       | Framework to render charts on React                  |
+| Name                                    | Reason                                           |
+| --------------------------------------- | ------------------------------------------------ |
+| [React](https://reactjs.org/)           | JS framework to build the UI interface           |
+| [Tailwindcss](https://tailwindcss.com/) | framework for designing the front end css faster |
+| [Papaparse](https://www.papaparse.com)  | Framework to parse CVS data into JSON            |
+| [MaterialUI](https://www.mui.com)       | Framework for UI Components and Icons            |
+| [Recharts](https://recharts.org/)       | Framework to render charts on React              |
 
 ## Installation / Run
 
