@@ -56,18 +56,19 @@ function Home() {
 			{data.length > 0 && (
 				<div
 					className={
-						'flex flex-col w-4/5 h-xl mt-10 justify-center items-center bg-white '
+						'flex flex-col w-4/5 h-xxl mt-10 justify-center items-center bg-white '
 					}
 				>
 					<h3 className='text-center font-bold text-2xl mt-1'>
 						Table Data Visualization
 					</h3>
+					<p>To unselect a row hold cntrl and click on the row</p>
+					<p>(unselect before exporting)</p>
 
 					<Table data={data} />
 				</div>
 			)}
 
-			{/* Download csv icon https://icons8.com/icons/set/csv-file */}
 			{/* Download Result */}
 			<div className='flex flex-row content-center items-center mt-5'>
 				<Footer />
