@@ -20,8 +20,8 @@ export const tableColumns = [
 		editable: true,
 	},
 	{
-		field: 'Beschreilbung',
-		headerName: 'Beschreilbung',
+		field: 'Beschreibung',
+		headerName: 'Beschreibung',
 		headerClassName: 'super-app-theme--header',
 		width: 110,
 		editable: true,
@@ -46,8 +46,8 @@ export const tableColumns = [
 		editable: true,
 	},
 	{
-		field: 'Armel',
-		headerName: 'Armel',
+		field: 'Ärmel',
+		headerName: 'Ärmel',
 		headerClassName: 'super-app-theme--header',
 		editable: true,
 	},

@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 
-import PieChartComponent from './pie-chart-component';
-import BarChartComponent from './bar-chart-component';
+import PieChartComponent from '../components/charts/pie-chart-component';
+import BarChartComponent from '../components/charts//bar-chart-component';
 
-import Stack from '@mui/material/Stack';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
 
-function GraphComponent({ data }) {
+function GraphScreen({ data }) {
 	const [graph, setGraph] = useState('');
 	const [graphData, setGraphData] = useState([]);
 
@@ -29,22 +29,22 @@ function GraphComponent({ data }) {
 
 		data.map(element => {
 			if (element.Geschlecht === 'Herren') {
-				total[0].amount++;
+				return total[0].amount++;
 			} else if (element.Geschlecht === 'Damen') {
-				total[1].amount += 1;
+				return (total[1].amount += 1);
 			} else if (element.Geschlecht === 'Kinder') {
-				total[2].amount += 1;
+				return (total[2].amount += 1);
 			} else if (element.Geschlecht === 'Babies') {
-				total[3].amount += 1;
+				return (total[3].amount += 1);
 			} else {
-				total[4].amount += 1;
+				return (total[4].amount += 1);
 			}
 		});
 		return setGraphData(total);
-	}, [setGraphData]);
+	}, [data, setGraphData]);
 
 	return (
-		<div className='flex flex-col content-center items-center '>
+		<div className='flex flex-col content-center items-center'>
 			<h3 className='text-center font-bold text-2xl mt-1'>
 				Graph Representations
 			</h3>
@@ -92,4 +92,4 @@ function GraphComponent({ data }) {
 		</div>
 	);
 }
-export default GraphComponent;
+export default GraphScreen;

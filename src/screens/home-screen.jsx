@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import csvFile from '../assets/Artikel.csv';
-import Table from '../components/table-component';
-import CircularProgress from '@mui/material/CircularProgress';
-import GraphComponent from '../components/graph-component';
+import { LinearProgress } from '@mui/material';
+import { useGlobalState } from '../context/store';
+
+import GraphScreen from './graph-screen';
+import TableScreen from './table-screen';
 import Footer from '../components/footer';
 import AboutMe from '../components/about-me';
 
 function Home() {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const [state, dispatch] = useGlobalState();
 
 	// Parse local CSV file
 	const handleLocalParse = () => {
@@ -18,7 +21,10 @@ function Home() {
 			download: true,
 			header: true,
 			complete: results => {
+				// Initialize data
+				// dispatch({ data: results.data.forEach(item => state.data.push(item)) });
 				setData(results.data);
+				console.log(data);
 				setLoading(false);
 			},
 			error: (error, file) => {
@@ -34,40 +40,28 @@ function Home() {
 				<h3 className='text-3xl font-bold underline text-center'>CSV Parser</h3>
 
 				{/* Parse local CSV */}
-				<button
-					onClick={handleLocalParse}
-					className='bg-blue-500 hove:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5 '
-				>
-					Parse local CSV
-				</button>
+				{!data.length && (
+					<button
+						onClick={handleLocalParse}
+						className='bg-blue-500 hove:bg-blue-700 text-white font-bold py-2 px-4 rounded m-5 '
+					>
+						Parse local CSV
+					</button>
+				)}
 			</div>
 
-			{/* Render Charts */}
-			<div className={'w-4/5 h-xl bg-white '}>
+			{/* Charts Screen */}
+			<div className={'w-4/5 h-xl bg-white mt-5'}>
 				{/* Progress Spinner */}
-				{loading && <CircularProgress />}
+				{loading && <LinearProgress />}
 				{/* Load AboutMe if no data */}
 				{!data.length && <AboutMe />}
 				{/* Load data if exists */}
-				{data.length > 0 && <GraphComponent data={data} />}
+				{data.length > 0 && <GraphScreen data={data} />}
 			</div>
 
-			{/* Render Table */}
-			{data.length > 0 && (
-				<div
-					className={
-						'flex flex-col w-4/5 h-xxl mt-10 justify-center items-center bg-white '
-					}
-				>
-					<h3 className='text-center font-bold text-2xl mt-1'>
-						Table Data Visualization
-					</h3>
-					<p>To unselect a row hold cntrl and click on the row</p>
-					<p>(unselect before exporting)</p>
-
-					<Table data={data} />
-				</div>
-			)}
+			{/* Table Screen */}
+			{data.length > 0 && <TableScreen data={data} />}
 
 			{/* Download Result */}
 			<div className='flex flex-row content-center items-center mt-5'>

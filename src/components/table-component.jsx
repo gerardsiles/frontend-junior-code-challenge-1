@@ -1,9 +1,10 @@
 import {
 	DataGrid,
-	GridColDef,
+	GridToolbarDensitySelector,
 	GridToolbarContainer,
 	GridToolbarExport,
-	GridValueGetterParams,
+	GridToolbarFilterButton,
+	GridToolbarColumnsButton,
 } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState, useMemo } from 'react';
@@ -20,6 +21,9 @@ const Table = ({ data }) => {
 	const toolbar = () => {
 		return (
 			<GridToolbarContainer>
+				<GridToolbarColumnsButton />
+				<GridToolbarFilterButton />
+				<GridToolbarDensitySelector />
 				<GridToolbarExport />
 			</GridToolbarContainer>
 		);
@@ -46,6 +50,7 @@ const Table = ({ data }) => {
 				getRowId={row => row.Hauptartikelnr}
 				rowsPerPageOptions={[10, 30, 50]}
 				onPageSizeChange={newPageSize => setSize(newPageSize)}
+				// onRowEditStop={(row)=> return}
 				components={{
 					Toolbar: toolbar,
 				}}
