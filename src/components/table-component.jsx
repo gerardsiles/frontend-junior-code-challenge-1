@@ -1,13 +1,29 @@
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import {
+	DataGrid,
+	GridColDef,
+	GridToolbarContainer,
+	GridToolbarExport,
+	GridValueGetterParams,
+} from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import { useState, useMemo } from 'react';
 import { tableColumns } from '../assets/table-columns';
 
 const Table = ({ data }) => {
-	// Avoid to rerender the header
-	const columns = useMemo(() => tableColumns);
 	// size of talbe results
 	const [size, setSize] = useState(10);
+
+	// Avoid to rerender the header
+	const columns = useMemo(() => tableColumns);
+
+	// Toolbar to allow CSV Download
+	const toolbar = () => {
+		return (
+			<GridToolbarContainer>
+				<GridToolbarExport />
+			</GridToolbarContainer>
+		);
+	};
 	return (
 		<Box
 			sx={{
@@ -15,8 +31,8 @@ const Table = ({ data }) => {
 				marginTop: 5,
 				boder: 2,
 				borderColor: 'rgb(36, 46, 185)',
-				height: 400,
-				width: '100%',
+				height: 600,
+				width: '95%',
 				backgroundColor: '#fff',
 				'& .super-app-theme--header': {
 					backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -30,6 +46,10 @@ const Table = ({ data }) => {
 				getRowId={row => row.Hauptartikelnr}
 				rowsPerPageOptions={[10, 30, 50]}
 				onPageSizeChange={newPageSize => setSize(newPageSize)}
+				components={{
+					Toolbar: toolbar,
+				}}
+				experimentalFeatures={{ newEditingApi: true }}
 			/>
 		</Box>
 	);
