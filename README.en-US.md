@@ -1,6 +1,6 @@
 # Code Challange 1 - CSV Processing
 
-A recurring requirement is the exchange of data between different systems. [CSV-Files (comma separated values)](https://en.wikipedia.org/wiki/CSV_(Dateiformat)) are often used for this purpose, for example database exports, calendar applications or spreadsheets.
+A recurring requirement is the exchange of data between different systems. [CSV-Files (comma separated values)](<https://en.wikipedia.org/wiki/CSV_(Dateiformat)>) are often used for this purpose, for example database exports, calendar applications or spreadsheets.
 
 The data is e.g. exported from a source system, imported into a target system, processed and exported again.
 
@@ -8,12 +8,12 @@ The data is e.g. exported from a source system, imported into a target system, p
 
 The goal is to implement an application to process and prepare the enclosed CSV file. The task is divided into the following sub-tasks / functions.
 
-1. Import the enclosed CSV file
-2. Tabular representation of the data from the CSV file
-3. Creation of new data records using the same schema
-4. Processing of existing data records
-5. Percentage representation of data records as a chart (bar or pie chart)
-6. Export all data as a CSV file with the same scheme
+1. Import the enclosed CSV file [x]
+2. Tabular representation of the data from the CSV file [x]
+3. Creation of new data records using the same schema [x]
+4. Processing of existing data records [x]
+5. Percentage representation of data records as a chart (bar or pie chart) [x]
+6. Export all data as a CSV file with the same scheme [x]
 
 ## 2. Design
 
@@ -48,9 +48,10 @@ Keep in mind that you and / or others need to build on this code and expand the 
 When you are finished with the task - or have only completed part of the time, you can provide us with your work result as follows:
 
 1. Provide us with the link to your code repository
+
    - If you don't have one yet, you can get one of the leading providers (e.g. [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/), [AzureDevOps](https://dev.azure.com/), ...) create an account and make your project available there.
    - Please make sure that the visibility of the repository is set to "Public"
 
-2. Add a copy of the attached file [Task Result](Task&#32;Result.md) and fill in all points accordingly.
+2. Add a copy of the attached file [Task Result](<Task Result.md>) and fill in all points accordingly.
 
 3. If you want to provide a demo of your project, [GitHub Pages](https://pages.github.com/) offers an easy way.
